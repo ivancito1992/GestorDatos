@@ -3,7 +3,6 @@ package com.gestordatos.pantallas
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -14,51 +13,56 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gestordatos.BBDD.AppDatabase
 import com.gestordatos.BBDD.IncidentRepository
 import com.gestordatos.R
-import com.gestordatos.varios.IncidentsByProvinceAdapter
-import com.gestordatos.varios.IncidentsByProvinceViewModel
+import com.gestordatos.varios.IncidentsByPoblationAdapter
+import com.gestordatos.varios.IncidentsByPoblationViewModel
 
-class IncidentsByProvinceActivity : AppCompatActivity() {
-    private lateinit var viewModel: IncidentsByProvinceViewModel
-    private lateinit var adapter: IncidentsByProvinceAdapter
+
+class IncidentsByPoblationActivity : AppCompatActivity() {
+    private lateinit var viewModel: IncidentsByPoblationViewModel
+    private lateinit var adapter: IncidentsByPoblationAdapter
+    private var provincia: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_incidents_by_province)
+        setContentView(R.layout.activity_incidents_by_poblation)
+
+        provincia = intent.getStringExtra("PROVINCIA") ?: return
 
         val dao = AppDatabase.getDatabase(application).incidentDao()
         val repository = IncidentRepository(dao)
-        viewModel = ViewModelProvider(this, IncidentsByProvinceViewModelFactory(repository))
-            .get(IncidentsByProvinceViewModel::class.java)
+        viewModel = ViewModelProvider(this, IncidentsByPoblationViewModelFactory(repository))
+            .get(IncidentsByPoblationViewModel::class.java)
 
         setupRecyclerView()
-        observeViewModel()
+        observeViewModel(provincia)
     }
 
     private fun setupRecyclerView() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        adapter = IncidentsByProvinceAdapter { provincia ->
+        adapter = IncidentsByPoblationAdapter { poblacion ->
             // Navegar a la pantalla de detalles
-            val intent = Intent(this, IncidentsByPoblationActivity::class.java)
+            val intent = Intent(this, IncidentDetailActivity::class.java)
 
-            intent.putExtra("PROVINCIA", provincia)
+            intent.putExtra("POBLACION", poblacion)
+            intent.putExtra("PROVINCIA",provincia)
             startActivity(intent)
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
-    private fun observeViewModel() {
-        viewModel.incidentsByProvince.observe(this) { incidents ->
+    private fun observeViewModel(provincia: String) {
+        viewModel.getIncidentsByPoblation(provincia).observe(this) { incidents ->
             adapter.submitList(incidents)
         }
     }
 }
 
-class IncidentsByProvinceViewModelFactory(private val repository: IncidentRepository) : ViewModelProvider.Factory {
+class IncidentsByPoblationViewModelFactory(private val repository: IncidentRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(IncidentsByProvinceViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(IncidentsByPoblationViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return IncidentsByProvinceViewModel(repository) as T
+            return IncidentsByPoblationViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

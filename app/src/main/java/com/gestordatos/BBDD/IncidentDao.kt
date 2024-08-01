@@ -8,7 +8,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
-import java.util.Date
 
 //Aqui establecemos los metodos que nos van a permitir obtener la informacion de base de datos
 //es decir los insert delete select y updates
@@ -53,10 +52,18 @@ interface IncidentDao {
     @Query("SELECT PROVINCIA, COUNT(*) as count FROM T_INCIDENCIAS GROUP BY PROVINCIA ORDER BY PROVINCIA ASC")
     fun getIncidentsByProvince(): Flow<List<ProvinceIncidentCount>>
 
-    @Query("SELECT * FROM T_INCIDENCIAS WHERE PROVINCIA = :provincia ORDER BY POBLACION, FECHA_CREACION, NOMBRE_CLIENTE DESC")
-    fun getIncidentDetailsByProvince(provincia: String): Flow<List<IncidentEntity>>
+    @Query("SELECT * FROM T_INCIDENCIAS WHERE PROVINCIA = :provincia AND POBLACION = :poblacion ORDER BY POBLACION, FECHA_CREACION, NOMBRE_CLIENTE DESC")
+    fun getIncidentDetailsByPoblation(poblacion: String, provincia: String): Flow<List<IncidentEntity>>
+
+    @Query("SELECT POBLACION, COUNT(*) as count FROM T_INCIDENCIAS WHERE PROVINCIA = :provincia GROUP BY POBLACION ORDER BY  POBLACION ASC")
+    fun getIncidentsByPoblation(provincia: String): Flow<List<PoblationIncidentCount>>
 }
 data class ProvinceIncidentCount(
     @ColumnInfo(name = "PROVINCIA") val provincia: String,
+    @ColumnInfo(name = "count") val count: Int
+)
+
+data class PoblationIncidentCount(
+    @ColumnInfo(name = "POBLACION") val poblacion: String,
     @ColumnInfo(name = "count") val count: Int
 )

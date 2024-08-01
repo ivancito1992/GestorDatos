@@ -17,6 +17,9 @@
         android:theme="@style/Theme.GestorDatos"
         tools:targetApi="31">
         <activity
+            android:name=".pantallas.IncidentsByPoblationActivity"
+            android:exported="false" />
+        <activity
             android:name=".pantallas.IncidentDetailActivity"
             android:exported="false" />
         <activity

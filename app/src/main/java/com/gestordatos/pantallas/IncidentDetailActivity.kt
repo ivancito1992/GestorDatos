@@ -1,10 +1,7 @@
 package com.gestordatos.pantallas
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +20,7 @@ class IncidentDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_incident_detail)
 
+        val poblacion = intent.getStringExtra("POBLACION") ?: return
         val provincia = intent.getStringExtra("PROVINCIA") ?: return
 
         val dao = AppDatabase.getDatabase(application).incidentDao()
@@ -30,7 +28,7 @@ class IncidentDetailActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, IncidentDetailViewModelFactory(repository))[IncidentDetailViewModel::class.java]
 
         setupRecyclerView()
-        observeViewModel(provincia)
+        observeViewModel(poblacion, provincia)
     }
 
     private fun setupRecyclerView() {
@@ -40,8 +38,8 @@ class IncidentDetailActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
-    private fun observeViewModel(provincia: String) {
-        viewModel.getIncidentDetailsByProvince(provincia).observe(this) { incidents ->
+    private fun observeViewModel(poblacion: String, provincia: String) {
+        viewModel.getIncidentDetailsByProvince(poblacion, provincia).observe(this) { incidents ->
             adapter.submitList(incidents)
         }
     }
