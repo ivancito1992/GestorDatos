@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Gestor de Datos</string>
+
+    <string name="btn_guardar">guardar</string>
+    <string name="btn_GenerarTabla">Generar tabla</string>
+    <string name="btn_leer_archivo">Leer archivo</string>
+    <string name="btn_abrir_formulario">Abrir formulario</string>
+    <string name="btn_seleccione_archivo">Seleccione archivo</string>
+    <string name="btn_reiniciar_tablas">Reiniciar Tablas</string>
+    <string name="btn_realizar_backup">Realizar Backup</string>
+    <string name="btn_gestion_datos">Gestión de datos</string>
+    <string name="btn_refrescar">Refrescar información</string>
+
+    <string name="tv_formulario_incidencias">Formulario incidencias</string>
+    <string name="tv_n_incidencia">Nº Incidencia</string>
+    <string name="tv_proyecto">Proyecto</string>
+    <string name="tv_cliente">Cliente</string>
+    <string name="tv_telefono_1">Teléfono 1</string>
+    <string name="tv_telefono_2">Teléfono 2</string>
+    <string name="tv_domicilio">Domicilio</string>
+    <string name="tv_poblacion">Poblacion</string>
+    <string name="tv_provincia">Provincia</string>
+    <string name="tv_zona">Zona O-M</string>
+    <string name="tv_hora_inicio">Hora inicio</string>
+    <string name="tv_duracion">Duración</string>
+    <string name="tv_comentarios">Comentarios</string>
+    <string name="tv_pedido">Pedido</string>
+    <string name="tv_planos">Planos</string>
+    <string name="tv_soporte">Soporte</string>
+    <string name="tv_gestion_de_tablas">Gestión de Tablas</string>
+    <string name="tv_info_tabla_principal">Tabla principal: 0 registros\nÚltimo cambio: No hay registros</string>
+    <string name="tv_info_tabla_bck">Último backup: Nunca</string>
+
+    <string name="et_ejemplo_num_incidencia">INCXXXXXXX</string>
+    <string name="et_ejemplo_proyecto">PXXXXX-XX</string>
+    <string name="et_ejemplo_comentarios">Comentario</string>
+    <string name="et_ejemplo_nombre_cliente">Nombre</string>
+    <string name="et_ejemplo_telefono_1">666554433</string>
+    <string name="et_ejemplo_telefono_2">666778899</string>
+    <string name="et_ejemplo_domicilio">Calle</string>
+    <string name="et_ejemplo_poblacion">Arganda</string>
+    <string name="et_ejemplo_provincia">Madrid</string>
+    <string name="et_ejemplo_zona">1 - 50 MIN</string>
+    <string name="et_ejemplo_hora_inicio">14:00</string>
+    <string name="et_ejemplo_duracion">Horas</string>
+    <string name="et_ejemplo_pedido">kit de limpieza</string>
+    <string name="et_ejemplo_planos">SI/NO</string>
+    <string name="et_ejemplo_soporte">Nombre(teléfono)</string>
+    <string name="btn_visor_por_provincias">Visor por provincias</string>
+    <string name="btn_generar_excel">Generar EXCEL</string>
+
+</resources>
