@@ -72,8 +72,9 @@ class FormActivity : AppCompatActivity() {
         val etSoporte: EditText = findViewById(R.id.etSoporte)
 
         val btnGuardar: Button = findViewById(R.id.btnGuardar)
-        val btnGenerar: Button = findViewById(R.id.btnGenerar)
+        //val btnGenerar: Button = findViewById(R.id.btnGenerar)
 
+        /*
         btnGenerar.setOnClickListener {
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P && !checkPermission()) {
                 requestPermission()
@@ -81,6 +82,8 @@ class FormActivity : AppCompatActivity() {
                 generateCSV()
             }
         }
+
+         */
 
         btnGuardar.setOnClickListener {
 
@@ -90,8 +93,8 @@ class FormActivity : AppCompatActivity() {
             val telefono1: String = etTelefono1.text.toString()
             val telefono2: String = etTelefono2.text.toString()
             val domicilio: String = etDomicilio.text.toString()
-            val poblacion: String = etPoblacion.text.toString()
-            val provincia: String = etProvincia.text.toString()
+            val poblacion: String = etPoblacion.text.toString().uppercase()
+            val provincia: String = etProvincia.text.toString().uppercase()
             val zonaOyM: String = etZonaOyM.text.toString()
             val horaInicio: String = etHoraInicio.text.toString()
             val duracion: String = etDuracion.text.toString()
@@ -178,7 +181,7 @@ class FormActivity : AppCompatActivity() {
             }
         }
     }
-
+/*
     //Funciones para los permisos
     private fun checkPermission(): Boolean {
         val result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -193,6 +196,9 @@ class FormActivity : AppCompatActivity() {
         )
     }
 
+ */
+
+    /*
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
@@ -296,4 +302,6 @@ class FormActivity : AppCompatActivity() {
             Toast.makeText(this@FormActivity, "CSV generado en los archivos de la aplicación", Toast.LENGTH_LONG).show()
         }
     }
+
+     */
 }

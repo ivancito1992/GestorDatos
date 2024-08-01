@@ -49,13 +49,13 @@ interface IncidentDao {
     suspend fun deleteAllBackups()
 
     //funciones para el tema de provincias
-    @Query("SELECT PROVINCIA, COUNT(*) as count FROM T_INCIDENCIAS GROUP BY PROVINCIA ORDER BY PROVINCIA ASC")
+    @Query("SELECT PROVINCIA, COUNT(*) as count FROM T_INCIDENCIAS GROUP BY PROVINCIA ORDER BY UPPER(PROVINCIA) ASC")
     fun getIncidentsByProvince(): Flow<List<ProvinceIncidentCount>>
 
-    @Query("SELECT * FROM T_INCIDENCIAS WHERE PROVINCIA = :provincia AND POBLACION = :poblacion ORDER BY POBLACION, FECHA_CREACION, NOMBRE_CLIENTE DESC")
+    @Query("SELECT * FROM T_INCIDENCIAS WHERE PROVINCIA = :provincia AND POBLACION = :poblacion ORDER BY UPPER(POBLACION), FECHA_CREACION, NOMBRE_CLIENTE DESC")
     fun getIncidentDetailsByPoblation(poblacion: String, provincia: String): Flow<List<IncidentEntity>>
 
-    @Query("SELECT POBLACION, COUNT(*) as count FROM T_INCIDENCIAS WHERE PROVINCIA = :provincia GROUP BY POBLACION ORDER BY  POBLACION ASC")
+    @Query("SELECT POBLACION, COUNT(*) as count FROM T_INCIDENCIAS WHERE PROVINCIA = :provincia GROUP BY POBLACION ORDER BY UPPER(POBLACION) ASC")
     fun getIncidentsByPoblation(provincia: String): Flow<List<PoblationIncidentCount>>
 }
 data class ProvinceIncidentCount(
