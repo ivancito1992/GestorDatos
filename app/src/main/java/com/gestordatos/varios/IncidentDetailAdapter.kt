@@ -25,13 +25,15 @@ class IncidentDetailAdapter : ListAdapter<IncidentEntity, IncidentDetailAdapter.
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Bind your views here
-        private val textoProyecto: TextView = itemView.findViewById(R.id.tvProyecto)
-        private val textoPoblacion: TextView = itemView.findViewById(R.id.tvPoblacion)
+        private val textoTelefonos: TextView = itemView.findViewById(R.id.tvTelefono)
+        private val textoDireccion: TextView = itemView.findViewById(R.id.tvDireccion)
         private val textoNombre: TextView = itemView.findViewById(R.id.tvNombreCliente)
         fun bind(item: IncidentEntity) {
-            textoProyecto.text = item.proyecto
-            textoPoblacion.text = item.poblacion
             textoNombre.text = item.nombreCliente
+            textoDireccion.text = item.domicilio
+            textoTelefonos.text = item.telefonos
+
+
         }
     }
 

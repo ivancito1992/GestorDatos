@@ -27,58 +27,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/llNumIncidencia"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbNumIncidencia"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_n_incidencia"/>
-                <EditText
-                    android:id="@+id/etNumIncidencia"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_num_incidencia" />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/llProyecto"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbProyecto"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_proyecto"/>
-                <EditText
-                    android:id="@+id/etProyecto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_proyecto"/>
-            </LinearLayout>
-            <LinearLayout
                 android:id="@+id/llNombreCliente"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -105,23 +53,23 @@
                     android:hint="@string/et_ejemplo_nombre_cliente"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/llTelefono1"
+                android:id="@+id/llTelefonos"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 tools:ignore="NestedWeights">
                 <TextView
-                    android:id="@+id/lbTelefono1"
+                    android:id="@+id/lbTelefonos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center_vertical"
                     android:layout_margin="5dp"
                     android:textSize="18sp"
-                    android:text="@string/tv_telefono_1"/>
+                    android:text="@string/tv_telefonos"/>
                 <EditText
-                    android:id="@+id/etTelefono1"
+                    android:id="@+id/etTelefonos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -129,32 +77,6 @@
                     android:layout_margin="5dp"
                     android:textSize="18sp"
                     android:hint="@string/et_ejemplo_telefono_1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/llTelefono2"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbTelefono2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_telefono_2"/>
-                <EditText
-                    android:id="@+id/etTelefono2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_telefono_2"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/llDomicilio"
@@ -235,186 +157,30 @@
                     android:hint="@string/et_ejemplo_provincia"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/llZonaOyM"
+                android:id="@+id/llFecha"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 tools:ignore="NestedWeights">
                 <TextView
-                    android:id="@+id/lbZonaOyM"
+                    android:id="@+id/lbFecha"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center_vertical"
                     android:layout_margin="5dp"
                     android:textSize="18sp"
-                    android:text="@string/tv_zona"/>
+                    android:text="@string/tv_fecha"/>
                 <EditText
-                    android:id="@+id/etZonaOyM"
+                    android:id="@+id/etFecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:layout_margin="5dp"
                     android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_zona"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/llHoraInicio"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbHoraInicio"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_hora_inicio"/>
-                <EditText
-                    android:id="@+id/etHoraInicio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_hora_inicio"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/llDuracion"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbDuracion"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_duracion"/>
-                <EditText
-                    android:id="@+id/etDuracion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_duracion"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/llComentarios"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbComentarios"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_comentarios"/>
-                <EditText
-                    android:id="@+id/etComentarios"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_comentarios"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/llPedido"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbPedido"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_pedido"/>
-                <EditText
-                    android:id="@+id/etPedido"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_pedido"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/llPlanos"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbPlanos"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_planos"/>
-                <EditText
-                    android:id="@+id/etPlanos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_planos"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/llSoporte"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                tools:ignore="NestedWeights">
-                <TextView
-                    android:id="@+id/lbSoporte"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/tv_soporte"/>
-                <EditText
-                    android:id="@+id/etSoporte"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:hint="@string/et_ejemplo_soporte"/>
+                    android:hint="@string/et_ejemplo_fecha"/>
             </LinearLayout>
         </LinearLayout>
 

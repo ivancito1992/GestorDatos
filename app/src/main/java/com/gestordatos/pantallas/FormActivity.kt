@@ -1,40 +1,23 @@
 package com.gestordatos.pantallas
 
-import android.Manifest
-import android.content.ContentValues
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.gestordatos.BBDD.AppDatabase
 import com.gestordatos.BBDD.IncidentDao
 import com.gestordatos.BBDD.IncidentEntity
 import com.gestordatos.R
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import java.io.File
-import java.io.FileOutputStream
-import java.io.OutputStreamWriter
-import kotlin.coroutines.resume
 
 class FormActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
     private lateinit var incidentDao: IncidentDao
-
-    private val PERMISSION_REQUEST_CODE = 1001
 
     private fun isEntryValid(
         numIncidencia: String, proyecto: String, nombreCliente: String,
@@ -55,21 +38,23 @@ class FormActivity : AppCompatActivity() {
         db = AppDatabase.getDatabase(applicationContext)
         incidentDao = db.incidentDao()
 
-        val etNumIncidencia: EditText = findViewById(R.id.etNumIncidencia)
-        val etProyecto: EditText = findViewById(R.id.etProyecto)
+        //val etNumIncidencia: EditText = findViewById(R.id.etNumIncidencia)
+        //val etProyecto: EditText = findViewById(R.id.etProyecto)
         val etNombreCliente: EditText = findViewById(R.id.etNombreCliente)
-        val etTelefono1: EditText = findViewById(R.id.etTelefono1)
-        val etTelefono2: EditText = findViewById(R.id.etTelefono2)
+        val etTelefonos: EditText = findViewById(R.id.etTelefonos)
+        //val etTelefono1: EditText = findViewById(R.id.etTelefono1)
+        //val etTelefono2: EditText = findViewById(R.id.etTelefono2)
         val etDomicilio: EditText = findViewById(R.id.etDomicilio)
         val etPoblacion: EditText = findViewById(R.id.etPoblacion)
         val etProvincia: EditText = findViewById(R.id.etProvincia)
-        val etZonaOyM: EditText = findViewById(R.id.etZonaOyM)
-        val etHoraInicio: EditText = findViewById(R.id.etHoraInicio)
-        val etDuracion: EditText = findViewById(R.id.etDuracion)
-        val etComentarios: EditText = findViewById(R.id.etComentarios)
-        val etPedido: EditText = findViewById(R.id.etPedido)
-        val etPlanos: EditText = findViewById(R.id.etPlanos)
-        val etSoporte: EditText = findViewById(R.id.etSoporte)
+        val etFecha: EditText = findViewById(R.id.etFecha)
+        //val etZonaOyM: EditText = findViewById(R.id.etZonaOyM)
+        //val etHoraInicio: EditText = findViewById(R.id.etHoraInicio)
+        //val etDuracion: EditText = findViewById(R.id.etDuracion)
+        //val etComentarios: EditText = findViewById(R.id.etComentarios)
+        //val etPedido: EditText = findViewById(R.id.etPedido)
+        //val etPlanos: EditText = findViewById(R.id.etPlanos)
+        //val etSoporte: EditText = findViewById(R.id.etSoporte)
 
         val btnGuardar: Button = findViewById(R.id.btnGuardar)
         //val btnGenerar: Button = findViewById(R.id.btnGenerar)
@@ -87,65 +72,118 @@ class FormActivity : AppCompatActivity() {
 
         btnGuardar.setOnClickListener {
 
-            val numIncidencia: String = etNumIncidencia.text.toString()
-            val proyecto: String = etProyecto.text.toString()
+            //val numIncidencia: String = etNumIncidencia.text.toString()
+            //val proyecto: String = etProyecto.text.toString()
             val nombreCliente: String = etNombreCliente.text.toString()
-            val telefono1: String = etTelefono1.text.toString()
-            val telefono2: String = etTelefono2.text.toString()
+            val telefonos: String = etTelefonos.text.toString()
+            //val telefono1: String = etTelefono1.text.toString()
+            //val telefono2: String = etTelefono2.text.toString()
             val domicilio: String = etDomicilio.text.toString()
             val poblacion: String = etPoblacion.text.toString().uppercase()
             val provincia: String = etProvincia.text.toString().uppercase()
-            val zonaOyM: String = etZonaOyM.text.toString()
-            val horaInicio: String = etHoraInicio.text.toString()
-            val duracion: String = etDuracion.text.toString()
-            val comentarios: String = etComentarios.text.toString()
-            val pedido: String = etPedido.text.toString()
-            val planos: String = etPlanos.text.toString()
-            val soporte: String = etSoporte.text.toString()
+            val fecha: String = etFecha.text.toString()
+            //val zonaOyM: String = etZonaOyM.text.toString()
+            //val horaInicio: String = etHoraInicio.text.toString()
+            //val duracion: String = etDuracion.text.toString()
+            //val comentarios: String = etComentarios.text.toString()
+            //val pedido: String = etPedido.text.toString()
+            //val planos: String = etPlanos.text.toString()
+            //val soporte: String = etSoporte.text.toString()
 
+            insertIncident(
+                //numIncidencia,
+                //proyecto,
+                nombreCliente,
+                telefonos,
+                //telefono1,
+                //telefono2,
+                domicilio,
+                poblacion,
+                provincia,
+                fecha)
+                //zonaOyM,
+                //horaInicio,
+                //duracion,
+                //comentarios,
+                //pedido,
+                //planos,
+                //soporte
+            /*
             if (isEntryValid(
-                    numIncidencia,
-                    proyecto,
+                    //numIncidencia,
+                    //proyecto,
                     nombreCliente,
-                    telefono1,
-                    telefono2,
+                    telefonos,
+                    //telefono1,
+                    //telefono2,
                     domicilio,
                     poblacion,
                     provincia,
-                    zonaOyM,
-                    horaInicio,
-                    duracion,
-                    comentarios,
-                    pedido,
-                    planos,
-                    soporte
+                    fecha
+                    //zonaOyM
+                    //horaInicio,
+                    //duracion,
+                    //comentarios,
+                    //pedido,
+                    //planos,
+                    //soporte
                 )
             ) {
                 insertIncident(
-                    numIncidencia,
-                    proyecto,
+                    //numIncidencia,
+                    //proyecto,
                     nombreCliente,
-                    telefono1,
-                    telefono2,
+                    telefonos,
+                    //telefono1,
+                    //telefono2,
                     domicilio,
                     poblacion,
                     provincia,
-                    zonaOyM,
-                    horaInicio,
-                    duracion,
-                    comentarios,
-                    pedido,
-                    planos,
-                    soporte
+                    fecha
+                    //zonaOyM,
+                    //horaInicio,
+                    //duracion,
+                    //comentarios,
+                    //pedido,
+                    //planos,
+                    //soporte
                 )
             } else {
                 Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_SHORT)
                     .show()
             }
+
+             */
         }
 
     }
     //Funciones para el insert
+    private fun insertIncident(nombreCliente: String, telefonos: String, domicilio: String, poblacion: String,
+                               provincia: String, fecha: String) {
+        val incident = IncidentEntity(
+            nombreCliente = nombreCliente,
+            telefonos = telefonos,
+            domicilio = domicilio,
+            poblacion = poblacion,
+            provincia = provincia,
+            fecha = fecha,
+            origen = "FORMULARIO",
+            fechaCreacion = System.currentTimeMillis()
+        )
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            incidentDao.insert(incident)
+            withContext(Dispatchers.Main) {
+                Toast.makeText(
+                    this@FormActivity,
+                    "Incidencia guardada con éxito",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    /*
     private fun insertIncident(numIncidencia: String, proyecto: String, nombreCliente: String,
                                telefono1: String, telefono2: String, domicilio: String, poblacion: String,
                                provincia: String, zonaOyM: String, horaInicio: String, duracion: String,
@@ -181,6 +219,8 @@ class FormActivity : AppCompatActivity() {
             }
         }
     }
+
+     */
 /*
     //Funciones para los permisos
     private fun checkPermission(): Boolean {

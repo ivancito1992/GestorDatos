@@ -15,28 +15,28 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/tvProyecto"
+            android:id="@+id/tvNombreCliente"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:layout_weight="1"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvPoblacion"
+            app:layout_constraintEnd_toStartOf="@+id/tvDireccion"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvPoblacion"
+            android:id="@+id/tvDireccion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:layout_weight="1"
             app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintEnd_toStartOf="@+id/tvNombreCliente"
+            app:layout_constraintEnd_toStartOf="@+id/tvTelefono"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvNombreCliente"
+            android:id="@+id/tvTelefono"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="16sp"

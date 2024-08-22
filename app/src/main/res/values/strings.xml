@@ -48,5 +48,8 @@
     <string name="et_ejemplo_soporte">Nombre(teléfono)</string>
     <string name="btn_visor_por_provincias">Visor por provincias</string>
     <string name="btn_generar_excel">Generar EXCEL</string>
+    <string name="tv_telefonos">Telefonos</string>
+    <string name="tv_fecha">Fecha</string>
+    <string name="et_ejemplo_fecha">24/08/2024 - 18:00:00</string>
 
 </resources>

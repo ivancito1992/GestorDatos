@@ -103,21 +103,23 @@ class TableManagementActivity : AppCompatActivity() {
             val incidents = incidentDao.getAllIncidents()
             val backups = incidents.map {
                 IncidentBackupEntity(
-                    numeroIncidencia = it.numeroIncidencia,
-                    proyecto = it.proyecto,
+                    //numeroIncidencia = it.numeroIncidencia,
+                    //proyecto = it.proyecto,
                     nombreCliente = it.nombreCliente,
-                    telefono1 = it.telefono1,
-                    telefono2 = it.telefono2,
+                    telefonos = it.telefonos,
+                    //telefono1 = it.telefono1,
+                    //telefono2 = it.telefono2,
                     domicilio = it.domicilio,
                     poblacion = it.poblacion,
                     provincia = it.provincia,
-                    zonaOM = it.zonaOM,
-                    horaInicio = it.horaInicio,
-                    duracion = it.duracion,
-                    comentarios = it.comentarios,
-                    pedido = it.pedido,
-                    planos = it.planos,
-                    soporte = it.soporte,
+                    fecha = it.fecha,
+                    //zonaOM = it.zonaOM,
+                    //horaInicio = it.horaInicio,
+                    //duracion = it.duracion,
+                    //comentarios = it.comentarios,
+                    //pedido = it.pedido,
+                    //planos = it.planos,
+                    //soporte = it.soporte,
                     origen = it.origen,
                     fechaBackup = System.currentTimeMillis()
                 )
@@ -140,21 +142,23 @@ class TableManagementActivity : AppCompatActivity() {
             val incidents = incidentDao.getAllIncidents()
             val backups = incidents.map {
                 IncidentBackupEntity(
-                    numeroIncidencia = it.numeroIncidencia,
-                    proyecto = it.proyecto,
+                    //numeroIncidencia = it.numeroIncidencia,
+                    //proyecto = it.proyecto,
                     nombreCliente = it.nombreCliente,
-                    telefono1 = it.telefono1,
-                    telefono2 = it.telefono2,
+                    telefonos = it.telefonos,
+                    //telefono1 = it.telefono1,
+                    //telefono2 = it.telefono2,
                     domicilio = it.domicilio,
                     poblacion = it.poblacion,
                     provincia = it.provincia,
-                    zonaOM = it.zonaOM,
-                    horaInicio = it.horaInicio,
-                    duracion = it.duracion,
-                    comentarios = it.comentarios,
-                    pedido = it.pedido,
-                    planos = it.planos,
-                    soporte = it.soporte,
+                    fecha = it.fecha,
+                    //zonaOM = it.zonaOM,
+                    //horaInicio = it.horaInicio,
+                    //duracion = it.duracion,
+                    //comentarios = it.comentarios,
+                    //pedido = it.pedido,
+                    //planos = it.planos,
+                    //soporte = it.soporte,
                     origen = it.origen,
                     fechaBackup = System.currentTimeMillis()
                 )
@@ -216,9 +220,12 @@ class TableManagementActivity : AppCompatActivity() {
 
     private fun buildCSVContent(incidents: List<IncidentEntity>): String {
         return buildString {
-            appendLine("ID,Num_Incidencia,Proyecto,Nombre_Cliente,Telefono_1,Telefono_2,Domicilio,Poblacion,Provincia,Zona_OM,Hora_Inicio,Duracion,Comentarios,Pedido,Planos,Soporte,Origen")
+            //appendLine("ID,Num_Incidencia,Proyecto,Nombre_Cliente,Telefono_1,Telefono_2,Domicilio,Poblacion,Provincia,Zona_OM,Hora_Inicio,Duracion,Comentarios,Pedido,Planos,Soporte,Origen")
+            appendLine("ID,Nombre_Cliente,Telefonos,Domicilio,Poblacion,Provincia,fecha,Origen")
             incidents.forEach { incident ->
-                appendLine("${incident.id},${incident.numeroIncidencia},${incident.proyecto},${incident.nombreCliente},${incident.telefono1},${incident.telefono2},${incident.domicilio},${incident.poblacion},${incident.provincia},${incident.zonaOM},${incident.horaInicio},${incident.duracion},${incident.comentarios},${incident.pedido},${incident.planos},${incident.soporte},${incident.origen}")
+                //appendLine("${incident.id},${incident.numeroIncidencia},${incident.proyecto},${incident.nombreCliente},${incident.telefono1},${incident.telefono2},${incident.domicilio},${incident.poblacion},${incident.provincia},${incident.zonaOM},${incident.horaInicio},${incident.duracion},${incident.comentarios},${incident.pedido},${incident.planos},${incident.soporte},${incident.origen}")
+                appendLine("${incident.id},${incident.nombreCliente},${incident.telefonos},${incident.domicilio},${incident.poblacion},${incident.provincia},${incident.fecha},${incident.origen}")
+
             }
         }
     }
