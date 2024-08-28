@@ -103,36 +103,25 @@ class TableManagementActivity : AppCompatActivity() {
             val incidents = incidentDao.getAllIncidents()
             val backups = incidents.map {
                 IncidentBackupEntity(
-                    //numeroIncidencia = it.numeroIncidencia,
-                    //proyecto = it.proyecto,
                     nombreCliente = it.nombreCliente,
                     telefonos = it.telefonos,
-                    //telefono1 = it.telefono1,
-                    //telefono2 = it.telefono2,
                     domicilio = it.domicilio,
                     poblacion = it.poblacion,
                     provincia = it.provincia,
                     fecha = it.fecha,
-                    //zonaOM = it.zonaOM,
-                    //horaInicio = it.horaInicio,
-                    //duracion = it.duracion,
-                    //comentarios = it.comentarios,
-                    //pedido = it.pedido,
-                    //planos = it.planos,
-                    //soporte = it.soporte,
                     origen = it.origen,
                     fechaBackup = System.currentTimeMillis()
                 )
             }
             incidentDao.insertBackup(backups)
-            incidentDao.deleteAllIncidents()
+            incidentDao.deleteAllIncidentsAndResetId()
             updateInfo()
         }
     }
 
     private fun resetWithoutBackup() {
         lifecycleScope.launch {
-            incidentDao.deleteAllIncidents()
+            incidentDao.deleteAllIncidentsAndResetId()
             updateInfo()
         }
     }
@@ -142,23 +131,12 @@ class TableManagementActivity : AppCompatActivity() {
             val incidents = incidentDao.getAllIncidents()
             val backups = incidents.map {
                 IncidentBackupEntity(
-                    //numeroIncidencia = it.numeroIncidencia,
-                    //proyecto = it.proyecto,
                     nombreCliente = it.nombreCliente,
                     telefonos = it.telefonos,
-                    //telefono1 = it.telefono1,
-                    //telefono2 = it.telefono2,
                     domicilio = it.domicilio,
                     poblacion = it.poblacion,
                     provincia = it.provincia,
                     fecha = it.fecha,
-                    //zonaOM = it.zonaOM,
-                    //horaInicio = it.horaInicio,
-                    //duracion = it.duracion,
-                    //comentarios = it.comentarios,
-                    //pedido = it.pedido,
-                    //planos = it.planos,
-                    //soporte = it.soporte,
                     origen = it.origen,
                     fechaBackup = System.currentTimeMillis()
                 )

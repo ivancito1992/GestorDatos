@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
@@ -14,13 +15,13 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface IncidentDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(incident: IncidentEntity)
+    suspend fun insert(incident: IncidentEntity)
 
     @Update
-    fun update(incident: IncidentEntity)
+    suspend fun update(incident: IncidentEntity)
 
     @Delete
-    fun delete(incident: IncidentEntity)
+    suspend fun delete(incident: IncidentEntity)
 
     @Query("SELECT * FROM T_INCIDENCIAS WHERE ID = :id")
     suspend fun getIncidentById(id: Int): IncidentEntity?
@@ -39,6 +40,15 @@ interface IncidentDao {
     @Query("DELETE FROM T_INCIDENCIAS")
     suspend fun deleteAllIncidents()
 
+    @Query("DELETE FROM sqlite_sequence WHERE name='T_INCIDENCIAS'")
+    suspend fun resetAutoIncrement()
+
+    @Transaction
+    suspend fun deleteAllIncidentsAndResetId() {
+        deleteAllIncidents()
+        resetAutoIncrement()
+    }
+
     @Query("SELECT * FROM T_INCIDENCIAS")
     suspend fun getAllIncidents(): List<IncidentEntity>
 
@@ -47,6 +57,15 @@ interface IncidentDao {
 
     @Query("DELETE FROM T_INCIDENCIAS_BCK")
     suspend fun deleteAllBackups()
+
+    @Query("DELETE FROM sqlite_sequence WHERE name='T_INCIDENCIAS_BCK'")
+    suspend fun resetAutoIncrementBCK()
+
+    @Transaction
+    suspend fun deleteAllIncidentsAndResetIdBCK() {
+        deleteAllBackups()
+        resetAutoIncrementBCK()
+    }
 
     //funciones para el tema de provincias
     @Query("SELECT PROVINCIA, COUNT(*) as count FROM T_INCIDENCIAS GROUP BY PROVINCIA ORDER BY UPPER(PROVINCIA) ASC")

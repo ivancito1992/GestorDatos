@@ -1,5 +1,6 @@
 package com.gestordatos.pantallas
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -7,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gestordatos.BBDD.AppDatabase
+import com.gestordatos.BBDD.IncidentEntity
 import com.gestordatos.BBDD.IncidentRepository
 import com.gestordatos.R
 import com.gestordatos.varios.IncidentDetailAdapter
@@ -33,7 +35,9 @@ class IncidentDetailActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerViewDetail)
-        adapter = IncidentDetailAdapter()
+        adapter = IncidentDetailAdapter { incident ->
+            openEditForm(incident)
+        }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
@@ -42,6 +46,13 @@ class IncidentDetailActivity : AppCompatActivity() {
         viewModel.getIncidentDetailsByProvince(poblacion, provincia).observe(this) { incidents ->
             adapter.submitList(incidents)
         }
+    }
+
+    private fun openEditForm(incident: IncidentEntity) {
+        val intent = Intent(this, FormActivity::class.java).apply {
+            putExtra("INCIDENT_ID", incident.id)
+        }
+        startActivity(intent)
     }
 }
 
