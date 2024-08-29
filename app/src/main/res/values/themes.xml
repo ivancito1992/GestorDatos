@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-   <style name="Theme.GestorDatos" parent="Theme.AppCompat.DayNight.NoActionBar" />
+   <style name="Theme.GestorDatos" parent="Theme.AppCompat.DayNight.NoActionBar">
+
+      <!-- Fondo fijo para toda la aplicación -->
+      <item name="android:windowBackground">@color/app_background</item>
+
+      <!-- Estilo para EditText -->
+      <item name="android:editTextColor">#f3c922</item>
+      <item name="android:textColorHint">#D3D3D3</item> <!-- Gris claro para el hint -->
+
+      <!-- Estilo para TextView -->
+      <item name="android:textColor">#f3c922</item>
+
+      <!-- Estilo para Botones -->
+      <item name="android:buttonStyle">@style/CustomButtonStyle</item>
+   </style>
+
 </resources>

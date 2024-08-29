@@ -190,18 +190,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:orientation="horizontal"
         tools:ignore="NestedWeights">
         <Button
             android:id="@+id/btnGuardar"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_width ="0dp"
+            android:layout_height ="match_parent"
+            android:layout_weight ="1"
+            android:layout_margin ="20dp"
             android:text="@string/btn_guardar" />
     </LinearLayout>
 
