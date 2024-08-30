@@ -12,6 +12,9 @@
       <!-- Estilo para TextView -->
       <item name="android:textColor">#f3c922</item>
 
+      <!-- Estilo para CardView -->
+      <item name="materialCardViewStyle">@style/CustomCardViewStyle</item>
+
       <!-- Estilo para Botones -->
       <item name="android:buttonStyle">@style/CustomButtonStyle</item>
    </style>
