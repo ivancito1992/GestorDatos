@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_refrescar"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintTop_toBottomOf="@id/tvBackupTableInfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,6 +89,18 @@
         android:text="@string/btn_realizar_backup"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@id/btnResetTables"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp"
+        android:layout_marginHorizontal="20dp"/>
+
+    <Button
+        android:id="@+id/btnImportarExcel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_importar_excel"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/btnBackupData"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="40dp"

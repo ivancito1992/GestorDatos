@@ -10,6 +10,9 @@
     <string name="btn_realizar_backup">Realizar Backup</string>
     <string name="btn_gestion_datos">Gestión de datos</string>
     <string name="btn_refrescar">Refrescar información</string>
+    <string name="btn_importar_excel">Importar Excel</string>
+    <string name="btn_visor_por_provincias">Visor por provincias</string>
+    <string name="btn_generar_excel">Generar EXCEL</string>
 
     <string name="tv_formulario_incidencias">Formulario incidencias</string>
     <string name="tv_n_incidencia">Nº Incidencia</string>
@@ -30,6 +33,8 @@
     <string name="tv_gestion_de_tablas">Gestión de Tablas</string>
     <string name="tv_info_tabla_principal">Tabla principal: 0 registros\nÚltimo cambio: No hay registros</string>
     <string name="tv_info_tabla_bck">Último backup: Nunca</string>
+    <string name="tv_telefonos">Telefonos</string>
+    <string name="tv_fecha">Fecha</string>
 
     <string name="et_ejemplo_num_incidencia">INCXXXXXXX</string>
     <string name="et_ejemplo_proyecto">PXXXXX-XX</string>
@@ -46,10 +51,6 @@
     <string name="et_ejemplo_pedido">kit de limpieza</string>
     <string name="et_ejemplo_planos">SI/NO</string>
     <string name="et_ejemplo_soporte">Nombre(teléfono)</string>
-    <string name="btn_visor_por_provincias">Visor por provincias</string>
-    <string name="btn_generar_excel">Generar EXCEL</string>
-    <string name="tv_telefonos">Telefonos</string>
-    <string name="tv_fecha">Fecha</string>
     <string name="et_ejemplo_fecha">24/08/2024 - 18:00:00</string>
 
 </resources>
